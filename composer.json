@@ -1,0 +1,33 @@
+{
+    "name": "ajgl/simple-bus-query-bus",
+    "description": "Extension to simple-bus/message-bus to create query buses.",
+    "keywords": ["message", "query bus", "simple bus"],
+    "homepage": "https://github.com/ajgarlag/AjglSimpleBusQueryBus",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Antonio J. García Lagar",
+        "email": "aj@garcialagar.es",
+        "homepage": "http://aj.garcialagar.es",
+        "role": "developer"
+      }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "simple-bus/message-bus": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-4" : { "Ajgl\\SimpleBus\\Message\\" : "src" }
+    },
+    "autoload-dev": {
+        "psr-4" : { "Ajgl\\SimpleBus\\Message\\Tests\\" : "tests" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
