@@ -18,9 +18,5 @@ use SimpleBus\Message\Bus\MessageBus;
  */
 interface CatchReturnMessageBus extends MessageBus
 {
-    /**
-     * @param object     $message
-     * @param mixed|null $return
-     */
-    public function handle($message, &$return = null);
+    public function handle(object $message, &$return = null): void;
 }

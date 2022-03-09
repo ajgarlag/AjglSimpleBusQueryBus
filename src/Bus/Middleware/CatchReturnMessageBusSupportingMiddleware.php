@@ -20,23 +20,18 @@ use SimpleBus\Message\Bus\Middleware\MessageBusSupportingMiddleware;
  */
 class CatchReturnMessageBusSupportingMiddleware extends MessageBusSupportingMiddleware implements CatchReturnMessageBus
 {
-    public function handle($message, &$return = null)
+    public function handle($message, &$return = null): void
     {
         $callable = $this->callableForNextMiddleware(0);
         $callable($message, $return);
     }
 
-    /**
-     * @param int $index
-     *
-     * @return callable
-     */
-    private function callableForNextMiddleware($index)
+    private function callableForNextMiddleware(int $index): callable
     {
         $middlewares = $this->getMiddlewares();
 
         if (!isset($middlewares[$index])) {
-            return function () { return; };
+            return static function () { return; };
         }
 
         $middleware = $middlewares[$index];
@@ -49,12 +44,7 @@ class CatchReturnMessageBusSupportingMiddleware extends MessageBusSupportingMidd
         };
     }
 
-    /**
-     * @param MessageBusMiddleware $middleware
-     *
-     * @return CatchReturnMessageBusMiddleware
-     */
-    private function decorateMiddlewareIfNeeded(MessageBusMiddleware $middleware)
+    private function decorateMiddlewareIfNeeded(MessageBusMiddleware $middleware): MessageBusMiddleware
     {
         if (!$middleware instanceof CatchReturnMessageBusMiddleware) {
             $middleware = new CatchReturnMessageBusMiddlewareDecorator($middleware);

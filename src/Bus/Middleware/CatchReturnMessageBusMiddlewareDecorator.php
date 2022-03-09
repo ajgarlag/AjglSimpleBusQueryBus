@@ -25,15 +25,12 @@ class CatchReturnMessageBusMiddlewareDecorator implements CatchReturnMessageBusM
         $this->innerMiddleware = $innerMiddleware;
     }
 
-    /**
-     * @return MessageBusMiddleware
-     */
-    public function getInnerMiddleware()
+    public function getInnerMiddleware(): MessageBusMiddleware
     {
         return $this->innerMiddleware;
     }
 
-    public function handle($message, callable $next, &$return = null)
+    public function handle(object $message, callable $next, &$return = null): void
     {
         if ($this->innerMiddleware instanceof CatchReturnMessageBusMiddleware) {
             $this->innerMiddleware->handle($message, $next, $return);
@@ -49,9 +46,9 @@ class CatchReturnMessageBusMiddlewareDecorator implements CatchReturnMessageBusM
      *
      * @return callable
      */
-    private function decorateCallable(callable $next, &$return)
+    private function decorateCallable(callable $next, &$return): callable
     {
-        return function ($message) use ($next, &$return) {
+        return static function ($message) use ($next, &$return) {
             $return = $next($message);
         };
     }
