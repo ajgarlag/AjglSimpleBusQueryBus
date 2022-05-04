@@ -12,8 +12,9 @@
 namespace Ajgl\SimpleBus\Message\Tests\Handler;
 
 use Ajgl\SimpleBus\Message\Handler\DelegatesToMessageHandlerAndCatchReturnMiddleware;
+use PHPUnit\Framework\TestCase;
 
-class DelegatesToMessageHandlerAndCatchReturnMiddlewareTest extends \PHPUnit_Framework_TestCase
+class DelegatesToMessageHandlerAndCatchReturnMiddlewareTest extends TestCase
 {
     /**
      * @dataProvider provideMessages
@@ -29,13 +30,7 @@ class DelegatesToMessageHandlerAndCatchReturnMiddlewareTest extends \PHPUnit_Fra
     public function provideMessages()
     {
         return array(
-            array(null),
-            array(true),
-            array(false),
-            array(0),
-            array(PHP_INT_MAX),
             array(new \stdClass()),
-            array(array(null, false, 0, new \stdClass())),
         );
     }
 }

@@ -31,7 +31,7 @@ class DelegatesToMessageHandlerAndCatchReturnMiddleware implements CatchReturnMe
      *
      * {@inheritdoc}
      */
-    public function handle($message, callable $next, &$return = null)
+    public function handle(object $message, callable $next, &$return = null): void
     {
         $handler = $this->messageHandlerResolver->resolve($message);
         $return = call_user_func($handler, $message);
