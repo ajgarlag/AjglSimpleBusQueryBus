@@ -36,7 +36,9 @@ class CatchReturnMessageBusSupportingMiddleware extends MessageBusSupportingMidd
         $middlewares = $this->getMiddlewares();
 
         if (!isset($middlewares[$index])) {
-            return function () { return; };
+            return function () {
+                return;
+            };
         }
 
         $middleware = $middlewares[$index];
@@ -50,8 +52,6 @@ class CatchReturnMessageBusSupportingMiddleware extends MessageBusSupportingMidd
     }
 
     /**
-     * @param MessageBusMiddleware $middleware
-     *
      * @return CatchReturnMessageBusMiddleware
      */
     private function decorateMiddlewareIfNeeded(MessageBusMiddleware $middleware)

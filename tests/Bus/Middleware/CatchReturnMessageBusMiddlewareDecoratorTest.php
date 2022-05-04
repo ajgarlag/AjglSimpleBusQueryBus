@@ -33,7 +33,9 @@ class CatchReturnMessageBusMiddlewareDecoratorTest extends TestCase
     {
         $innerMiddleware = new PipeMiddleware();
         $middleware = new CatchReturnMessageBusMiddlewareDecorator($innerMiddleware);
-        $result = $middleware->handle($message, function ($message) { return $message; });
+        $result = $middleware->handle($message, function ($message) {
+            return $message;
+        });
         $this->assertNull($result);
     }
 
@@ -45,7 +47,9 @@ class CatchReturnMessageBusMiddlewareDecoratorTest extends TestCase
         $innerMiddleware = new PipeMiddleware();
         $middleware = new CatchReturnMessageBusMiddlewareDecorator($innerMiddleware);
         $return = null;
-        $result = $middleware->handle($message, function ($message) { return $message; }, $return);
+        $result = $middleware->handle($message, function ($message) {
+            return $message;
+        }, $return);
         $this->assertNull($result);
         $this->assertSame($message, $return);
     }
@@ -59,7 +63,9 @@ class CatchReturnMessageBusMiddlewareDecoratorTest extends TestCase
         $firstMiddleware = new CatchReturnMessageBusMiddlewareDecorator($innerMiddleware);
         $secondMiddleware = new CatchReturnMessageBusMiddlewareDecorator($firstMiddleware);
         $return = null;
-        $result = $secondMiddleware->handle($message, function ($message) { return $message; }, $return);
+        $result = $secondMiddleware->handle($message, function ($message) {
+            return $message;
+        }, $return);
         $this->assertNull($result);
         $this->assertSame($message, $return);
     }
@@ -72,16 +78,18 @@ class CatchReturnMessageBusMiddlewareDecoratorTest extends TestCase
         $innerMiddleware = new PipeCatchReturnMiddleware();
         $middleware = new CatchReturnMessageBusMiddlewareDecorator($innerMiddleware);
         $return = null;
-        $result = $middleware->handle($message, function ($message) { return $message; }, $return);
+        $result = $middleware->handle($message, function ($message) {
+            return $message;
+        }, $return);
         $this->assertNull($result);
         $this->assertSame($message, $return);
     }
 
     public function provideMessages()
     {
-        return array(
-            array(new \stdClass()),
-            array(new \stdClass('query')),
-        );
+        return [
+            [new \stdClass()],
+            [new \stdClass('query')],
+        ];
     }
 }

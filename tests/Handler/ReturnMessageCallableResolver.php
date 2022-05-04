@@ -17,6 +17,8 @@ class ReturnMessageCallableResolver implements MessageHandlerResolver
 {
     public function resolve(object $message): callable
     {
-        return function (object $message) { return $message; };
+        return function (object $message) {
+            return $message;
+        };
     }
 }
