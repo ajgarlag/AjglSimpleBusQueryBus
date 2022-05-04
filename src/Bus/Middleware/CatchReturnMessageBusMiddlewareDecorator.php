@@ -44,8 +44,7 @@ class CatchReturnMessageBusMiddlewareDecorator implements CatchReturnMessageBusM
     }
 
     /**
-     * @param callable $next
-     * @param mixed    $return
+     * @param mixed $return
      *
      * @return callable
      */

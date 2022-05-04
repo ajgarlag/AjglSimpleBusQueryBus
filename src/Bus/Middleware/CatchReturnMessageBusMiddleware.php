@@ -21,8 +21,6 @@ interface CatchReturnMessageBusMiddleware extends MessageBusMiddleware
     /**
      * Will reference the return of the execution into the $return parameter.
      *
-     * @param object     $message
-     * @param callable   $next
      * @param mixed|null $return
      */
     public function handle(object $message, callable $next, &$return = null): void;

@@ -22,15 +22,17 @@ class DelegatesToMessageHandlerAndCatchReturnMiddlewareTest extends TestCase
     public function testCatchReturnedValue($message)
     {
         $middleware = new DelegatesToMessageHandlerAndCatchReturnMiddleware(new ReturnMessageCallableResolver());
-        $result = $middleware->handle($message, function () {return;}, $return);
+        $result = $middleware->handle($message, function () {
+            return;
+        }, $return);
         $this->assertNull($result);
         $this->assertSame($message, $return);
     }
 
     public function provideMessages()
     {
-        return array(
-            array(new \stdClass()),
-        );
+        return [
+            [new \stdClass()],
+        ];
     }
 }

@@ -24,14 +24,14 @@ class CatchReturnMessageBusSupportingMiddlewareTest extends TestCase
     protected function setUp(): void
     {
         $this->bus = new CatchReturnMessageBusSupportingMiddleware(
-            array(
+            [
                 new PipeMiddleware(),
                 new PipeMiddleware(),
                 new PipeCatchReturnMiddleware(),
                 new PipeMiddleware(),
                 new PipeMiddleware(),
                 new ReturnMessageMiddleware(),
-            )
+            ]
         );
     }
 
@@ -105,8 +105,8 @@ class CatchReturnMessageBusSupportingMiddlewareTest extends TestCase
 
     public function provideMessages()
     {
-        return array(
-            array(new \stdClass()),
-        );
+        return [
+            [new \stdClass()],
+        ];
     }
 }
