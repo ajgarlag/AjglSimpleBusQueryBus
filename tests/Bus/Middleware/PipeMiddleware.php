@@ -18,7 +18,7 @@ use SimpleBus\Message\Bus\Middleware\MessageBusMiddleware;
  */
 class PipeMiddleware implements MessageBusMiddleware
 {
-    public function handle($message, callable $next)
+    public function handle(object $message, callable $next): void
     {
         $next($message);
     }

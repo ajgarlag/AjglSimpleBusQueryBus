@@ -18,7 +18,7 @@ use Ajgl\SimpleBus\Message\Bus\Middleware\CatchReturnMessageBusMiddleware;
  */
 class PipeCatchReturnMiddleware implements CatchReturnMessageBusMiddleware
 {
-    public function handle($message, callable $next, &$return = null)
+    public function handle(object $message, callable $next, &$return = null): void
     {
         $return = $next($message);
     }

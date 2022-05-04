@@ -12,11 +12,12 @@
 namespace Ajgl\SimpleBus\Message\Tests\Bus\Middleware;
 
 use Ajgl\SimpleBus\Message\Bus\Middleware\CatchReturnMessageBusMiddlewareDecorator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Antonio J. García Lagar <aj@garcialagar.es>
  */
-class CatchReturnMessageBusMiddlewareDecoratorTest extends \PHPUnit_Framework_TestCase
+class CatchReturnMessageBusMiddlewareDecoratorTest extends TestCase
 {
     public function testGetInnerMiddleware()
     {
@@ -79,13 +80,8 @@ class CatchReturnMessageBusMiddlewareDecoratorTest extends \PHPUnit_Framework_Te
     public function provideMessages()
     {
         return array(
-            array(null),
-            array(true),
-            array(false),
-            array(0),
-            array(PHP_INT_MAX),
             array(new \stdClass()),
-            array(array(null, false, 0, new \stdClass())),
+            array(new \stdClass('query')),
         );
     }
 }

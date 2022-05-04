@@ -12,15 +12,16 @@
 namespace Ajgl\SimpleBus\Message\Tests\Bus\Middleware;
 
 use Ajgl\SimpleBus\Message\Bus\Middleware\CatchReturnMessageBusSupportingMiddleware;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Antonio J. García Lagar <aj@garcialagar.es>
  */
-class CatchReturnMessageBusSupportingMiddlewareTest extends \PHPUnit_Framework_TestCase
+class CatchReturnMessageBusSupportingMiddlewareTest extends TestCase
 {
     private $bus;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->bus = new CatchReturnMessageBusSupportingMiddleware(
             array(
@@ -105,13 +106,7 @@ class CatchReturnMessageBusSupportingMiddlewareTest extends \PHPUnit_Framework_T
     public function provideMessages()
     {
         return array(
-            array(null),
-            array(true),
-            array(false),
-            array(0),
-            array(PHP_INT_MAX),
             array(new \stdClass()),
-            array(array(null, false, 0, new \stdClass())),
         );
     }
 }

@@ -20,7 +20,7 @@ use SimpleBus\Message\Bus\Middleware\MessageBusSupportingMiddleware;
  */
 class CatchReturnMessageBusSupportingMiddleware extends MessageBusSupportingMiddleware implements CatchReturnMessageBus
 {
-    public function handle($message, &$return = null)
+    public function handle(object $message, &$return = null): void
     {
         $callable = $this->callableForNextMiddleware(0);
         $callable($message, $return);
