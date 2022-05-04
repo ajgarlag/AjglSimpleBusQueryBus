@@ -3,7 +3,7 @@ AjglSimpleBusQueryBus
 
 This package is an extension to the [MessageBus] package by @matthiasnoback intended to build query buses.
 
-[![Build Status](https://travis-ci.org/ajgarlag/AjglSimpleBusQueryBus.png?branch=master)](https://travis-ci.org/ajgarlag/AjglSimpleBusQueryBus)
+[![Build Status](https://github.com/ajgarlag/AjglSimpleBusQueryBus/actions/workflows/tests.yaml/badge.svg?branch=master)](https://github.com/ajgarlag/AjglSimpleBusQueryBusr/actions/workflows/tests.yaml)
 [![Latest Stable Version](https://poser.pugx.org/ajgl/simple-bus-query-bus/v/stable.png)](https://packagist.org/packages/ajgl/simple-bus-query-bus)
 [![Latest Unstable Version](https://poser.pugx.org/ajgl/simple-bus-query-bus/v/unstable.png)](https://packagist.org/packages/ajgl/simple-bus-query-bus)
 [![Total Downloads](https://poser.pugx.org/ajgl/simple-bus-query-bus/downloads.png)](https://packagist.org/packages/ajgl/simple-bus-query-bus)
